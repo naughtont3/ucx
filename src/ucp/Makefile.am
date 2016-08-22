@@ -52,6 +52,7 @@ noinst_HEADERS = \
 	stream/stream.h
 
 libucp_la_SOURCES = \
+	am/basic_am.c \
 	core/ucp_context.c \
 	core/ucp_ep.c \
 	core/ucp_listener.c \

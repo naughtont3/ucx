@@ -941,7 +941,6 @@ struct ucp_tag_recv_info {
     size_t                                 length;
 };
 
-
 /**
  * @ingroup UCP_CONFIG
  * @brief Read UCP configuration descriptor
@@ -2751,6 +2750,34 @@ ucs_status_t ucp_stream_recv_request_test(void *request, size_t *length_p);
  * "ucp_request_free()".
  */
 void ucp_request_cancel(ucp_worker_h worker, void *request);
+
+/**
+ * @ingroup UCP_AM
+ * @brief
+ */
+typedef ucs_status_t (*ucp_am_callback_t)(void *arg, void *data, size_t length,
+                                          void *desc);
+
+/**
+ * @ingroup UCP_AM
+ * @brief @ref uct_iface_set_am_handler
+ *
+ * @param [in]  ep      Remote endpoint handler.
+ * @param [in]  cb      Callback function.
+ * @param [in]  arg     Callback function parameter.
+ * @param [in]  flags   UCT SYNC/ASYNC flag.
+ * @param [out] id      The active message ID to trigger that callback.
+ *
+ * @return Error code as defined by @ref ucs_status_t
+ */
+ucs_status_t ucp_worker_set_am_handler(ucp_worker_h worker, ucp_am_callback_t cb, void *arg, uint32_t flags, uint8_t *id);
+
+/**
+ * @ingroup UCP_AM
+ * @brief
+ */
+ucs_status_t ucp_ep_am_short(ucp_ep_h ep, uint8_t id, uint64_t header,
+                                            const void *payload, unsigned length);
 
 
 /**
