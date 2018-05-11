@@ -54,6 +54,10 @@ nobase_dist_libucs_la_HEADERS = \
 	type/spinlock.h \
 	type/status.h \
 	type/thread_mode.h \
+	datastruct/mpool.h \
+	datastruct/mpool.inl \
+	sys/compiler.h \
+	sys/preprocessor.h \
 	type/cpu_set.h
 
 noinst_HEADERS = \
@@ -63,8 +67,6 @@ noinst_HEADERS = \
 	datastruct/hash.h \
 	datastruct/list.h \
 	datastruct/mpmc.h \
-	datastruct/mpool.h \
-	datastruct/mpool.inl \
 	datastruct/pgtable.h \
 	datastruct/ptr_array.h \
 	datastruct/queue_types.h \
@@ -73,9 +75,7 @@ noinst_HEADERS = \
 	datastruct/sglib_wrapper.h \
 	datastruct/khash.h \
 	sys/checker.h \
-	sys/compiler.h \
 	sys/math.h \
-	sys/preprocessor.h \
 	sys/rcache.h \
 	sys/sys.h \
 	time/time.h \
